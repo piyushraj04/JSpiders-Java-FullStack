@@ -1,0 +1,46 @@
+#######################################
+# IDE & Editor Files
+#######################################
+.vscode/
+.idea/
+*.iml
+
+#######################################
+# Java Build / Compiled Files
+#######################################
+*.class
+*.log
+*.jar
+*.war
+*.ear
+
+#######################################
+# Eclipse / IntelliJ / STS
+#######################################
+.settings/
+.project
+.classpath
+.metadata/
+
+#######################################
+# Node
+#######################################
+node_modules/
+
+#######################################
+# OS Files
+#######################################
+.DS_Store
+Thumbs.db
+
+#######################################
+# Large / Personal Folders (IMPORTANT)
+#######################################
+Application(JSPIDER)/
+Docx/
+SUBJECTS/
+
+#######################################
+# Optional (if you want to ignore these too)
+#######################################
+1700728-Linus-Torvalds-Quote-Talk-is-cheap-Show-me-the-code.jpg

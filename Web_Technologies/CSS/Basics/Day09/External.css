@@ -1,0 +1,20 @@
+h1{
+    background: #73ceef;
+    color: rgb(236, 14, 14);
+}
+h2{
+    background-color: beige;
+    color: blue;
+}
+h3{
+    background-color: beige;
+}
+fieldset{
+    background-color: rgb(229, 229, 117);
+}
+p{
+    background-color: rgb(243, 139, 227);
+}
+body{
+    background: #4c6e02;
+}

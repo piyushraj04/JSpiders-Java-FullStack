@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinators</title>
+    <style>
+        body{
+            text-shadow: 16px 5px 4px rgb(243, 167, 234);
+            background-color: rgb(118, 241, 245);
+            text-align: center;
+
+        }
+        div{
+            margin: 10px;
+            border: 2px solid rgb(115, 6, 224);
+        }
+        .parent > h1{
+            color: red;
+            background-color: beige;
+        }
+        .child > h1{
+            color: blue;
+            background-color: burlywood;
+        } 
+        .sub_child > h1{
+            color: rgb(229, 242, 41);
+            background-color: darkblue;
+        }
+        .great_subChild > h1{
+            color: #19f909;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <h1>Child Heading</h1>
+        <b>Child Bold</b>
+        <div class="child">
+            <h1>Sub Class</h1>
+            <p>Details About Combinators We Learn today.</p>
+            <h1>Sub Child 1</h1>
+            <div class="sub_child">
+                <h1>Great Sub Child</h1>
+                <div class="great_subChild">
+                    <h1>Grand Great Sub Child</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

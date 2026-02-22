@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Collections Framework - Complete Cheat Sheet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-align: left;
+            padding: 10px 8px;
+            border: 1px solid #334155;
+        }
+        td {
+            font-size: 0.75rem;
+            padding: 8px 8px;
+            border: 1px solid #cbd5e1;
+            vertical-align: middle;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        tr:hover {
+            background-color: #e2e8f0;
+        }
+        .interface-row {
+            background-color: #eef2ff !important;
+            font-weight: 600;
+        }
+        .code-font {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            color: #b91c1c;
+            font-size: 0.7rem;
+            background-color: #fee2e2;
+            padding: 2px 4px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 1px 0;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+        .badge-interface { background-color: #dbeafe; color: #1e40af; }
+        .badge-class { background-color: #dcfce3; color: #166534; }
+        .badge-legacy { background-color: #fef08a; color: #854d0e; }
+        .badge-yes { color: #15803d; font-weight: 600; }
+        .badge-no { color: #b91c1c; font-weight: 600; }
+
+        /* Print Specific Styling */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 10mm;
+            }
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: none;
+            }
+            th, td {
+                padding: 6px 4px; /* Tighter padding for print */
+                font-size: 0.7rem;
+            }
+            /* Prevent breaking rows across pages */
+            tr {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 flex justify-center items-start min-h-screen">
+
+    <div class="bg-white shadow-2xl rounded-xl p-6 w-full max-w-[1400px] print-container border border-slate-200">
+        
+        <!-- Header Section -->
+        <div class="flex justify-between items-end border-b pb-4 mb-4">
+            <div>
+                <h1 class="text-2xl font-bold text-slate-900">Java Collections Framework</h1>
+                <p class="text-slate-500 text-sm mt-1">Complete Cheat Sheet including Data Structures, Behaviors, and Key Methods</p>
+            </div>
+            <button onclick="window.print()" class="no-print bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
+                Print Cheat Sheet
+            </button>
+        </div>
+
+        <!-- Table Container -->
+        <div class="overflow-x-auto">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="w-24 rounded-tl-lg">Collection / Map</th>
+                        <th>Type & Since</th>
+                        <th>Underlying DS</th>
+                        <th>Heterogeneous?</th>
+                        <th>Null Rule</th>
+                        <th>Insertion Order?</th>
+                        <th>Duplicates?</th>
+                        <th>Index Based?</th>
+                        <th>Thread Safe?</th>
+                        <th>Capacity & Growth</th>
+                        <th class="rounded-tr-lg">Key Methods</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ROOT & INTERFACES -->
+                    <tr class="interface-row">
+                        <td class="font-bold">Iterable</td>
+                        <td><span class="badge badge-interface">Interface</span> (1.5)</td>
+                        <td>Root of Collection</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>-</td>
+                        <td><span class="code-font">iterator()</span></td>
+                    </tr>
+                    <tr class="interface-row">
+                        <td class="font-bold">Collection</td>
+                        <td><span class="badge badge-interface">Interface</span> (1.2)</td>
+                        <td>Root (List/Set/Queue)</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>Depends</td>
+                        <td>Depends</td>
+                        <td>Depends</td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>-</td>
+                        <td><span class="code-font">add()</span>, <span class="code-font">remove()</span>, <span class="code-font">size()</span></td>
+                    </tr>
+                    <tr class="interface-row">
+                        <td class="font-bold pl-4">List</td>
+                        <td><span class="badge badge-interface">Interface</span> (1.2)</td>
+                        <td>Ordered Collection</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>Yes</td>
+                        <td>Maintained</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>-</td>
+                        <td><span class="code-font">add(i, e)</span>, <span class="code-font">get(i)</span></td>
+                    </tr>
+                    <tr class="interface-row">
+                        <td class="font-bold pl-4">Set</td>
+                        <td><span class="badge badge-interface">Interface</span> (1.2)</td>
+                        <td>No duplicates</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>Max 1 null</td>
+                        <td>Depends</td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>-</td>
+                        <td><span class="code-font">add()</span>, <span class="code-font">contains()</span></td>
+                    </tr>
+                    <tr class="interface-row">
+                        <td class="font-bold pl-4">Queue</td>
+                        <td><span class="badge badge-interface">Interface</span> (1.5)</td>
+                        <td>Processing order</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>Mostly No</td>
+                        <td>FIFO / Priority</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td class="text-xs font-semibold">No <span class="text-gray-500 font-normal">(exc. LinkedList)</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>-</td>
+                        <td><span class="code-font">offer()</span>, <span class="code-font">poll()</span>, <span class="code-font">peek()</span></td>
+                    </tr>
+
+                    <!-- LIST IMPLEMENTATIONS -->
+                    <tr>
+                        <td class="font-bold text-blue-800">ArrayList</td>
+                        <td><span class="badge badge-class">Class</span> (1.2)</td>
+                        <td>Dynamic Array</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>Yes</td>
+                        <td>Maintained</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>10 &rarr; <span class="font-bold">+50%</span></td>
+                        <td><span class="code-font">add()</span>, <span class="code-font">get()</span>, <span class="code-font">remove()</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-blue-800">LinkedList</td>
+                        <td><span class="badge badge-class">Class</span> (1.2)</td>
+                        <td>Doubly Linked List</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>Yes</td>
+                        <td>Maintained</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-yes">Yes</span> <span class="text-gray-500">(as List)</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>0 &rarr; <span class="font-bold">+1 Node</span></td>
+                        <td><span class="code-font">addFirst()</span>, <span class="code-font">poll()</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-blue-800">Vector</td>
+                        <td><span class="badge badge-legacy">Legacy</span> (1.0)</td>
+                        <td>Dynamic Array</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>Yes</td>
+                        <td>Maintained</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>10 &rarr; <span class="font-bold">+100%</span></td>
+                        <td><span class="code-font">addElement()</span>, <span class="code-font">elementAt()</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-blue-800 pl-6">Stack</td>
+                        <td><span class="badge badge-legacy">Legacy</span> (1.0)</td>
+                        <td>Vector Based</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>Yes</td>
+                        <td>LIFO</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>10 &rarr; <span class="font-bold">+100%</span></td>
+                        <td><span class="code-font">push()</span>, <span class="code-font">pop()</span>, <span class="code-font">peek()</span></td>
+                    </tr>
+
+                    <!-- SET IMPLEMENTATIONS -->
+                    <tr>
+                        <td class="font-bold text-emerald-700">HashSet</td>
+                        <td><span class="badge badge-class">Class</span> (1.2)</td>
+                        <td>Hash Table</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>1 Null</td>
+                        <td>Not Maintained</td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>16 <span class="text-gray-500">(LF 0.75)</span> &rarr; <span class="font-bold">+100%</span></td>
+                        <td><span class="code-font">add()</span>, <span class="code-font">remove()</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-emerald-700">LinkedHashSet</td>
+                        <td><span class="badge badge-class">Class</span> (1.4)</td>
+                        <td>Hash Table + Linked List</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>1 Null</td>
+                        <td>Maintained</td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>16 <span class="text-gray-500">(LF 0.75)</span> &rarr; <span class="font-bold">+100%</span></td>
+                        <td><span class="code-font">add()</span>, <span class="code-font">remove()</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-emerald-700">TreeSet</td>
+                        <td><span class="badge badge-class">Class</span> (1.2)</td>
+                        <td class="font-bold text-amber-700">Binary Search Tree</td>
+                        <td><span class="badge-no">No</span> <span class="text-xs text-gray-500">(Must be Comparable)</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>Sorted Order</td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>N/A &rarr; <span class="font-bold">Balanced</span></td>
+                        <td><span class="code-font">first()</span>, <span class="code-font">last()</span>, <span class="code-font">headSet()</span></td>
+                    </tr>
+
+                    <!-- QUEUE IMPLEMENTATIONS -->
+                    <tr>
+                        <td class="font-bold text-purple-700">PriorityQueue</td>
+                        <td><span class="badge badge-class">Class</span> (1.5)</td>
+                        <td>Binary Heap</td>
+                        <td><span class="badge-no">No</span> <span class="text-xs text-gray-500">(Must be Comparable)</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>Priority Order</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>11 &rarr; <span class="font-bold">+50%</span></td>
+                        <td><span class="code-font">offer()</span>, <span class="code-font">poll()</span>, <span class="code-font">peek()</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-purple-700">ArrayDeque</td>
+                        <td><span class="badge badge-class">Class</span> (1.6)</td>
+                        <td>Resizable Array</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>FIFO / LIFO</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>16 &rarr; <span class="font-bold">+100%</span></td>
+                        <td><span class="code-font">addFirst()</span>, <span class="code-font">pollLast()</span></td>
+                    </tr>
+
+                    <!-- MAP ROOT & INTERFACES -->
+                    <tr class="interface-row">
+                        <td class="font-bold">Map</td>
+                        <td><span class="badge badge-interface">Interface</span> (1.2)</td>
+                        <td>Key-Value Pair</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>1 Null Key*</td>
+                        <td>Depends</td>
+                        <td>Keys: <span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>-</td>
+                        <td><span class="code-font">put()</span>, <span class="code-font">get()</span>, <span class="code-font">keySet()</span></td>
+                    </tr>
+                    <tr class="interface-row">
+                        <td class="font-bold pl-4">SortedMap</td>
+                        <td><span class="badge badge-interface">Interface</span> (1.2)</td>
+                        <td>Sorted Map</td>
+                        <td><span class="badge-no">No</span> <span class="text-xs text-gray-500">(Keys Comparable)</span></td>
+                        <td>No Null Key</td>
+                        <td>Sorted Order</td>
+                        <td>Keys: <span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>-</td>
+                        <td><span class="code-font">firstKey()</span>, <span class="code-font">lastKey()</span></td>
+                    </tr>
+                    <tr class="interface-row">
+                        <td class="font-bold pl-4">NavigableMap</td>
+                        <td><span class="badge badge-interface">Interface</span> (1.6)</td>
+                        <td>Navigation Methods</td>
+                        <td><span class="badge-no">No</span> <span class="text-xs text-gray-500">(Keys Comparable)</span></td>
+                        <td>No Null Key</td>
+                        <td>Sorted Order</td>
+                        <td>Keys: <span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>-</td>
+                        <td><span class="code-font">lowerKey()</span>, <span class="code-font">ceilingKey()</span></td>
+                    </tr>
+
+                    <!-- MAP IMPLEMENTATIONS -->
+                    <tr>
+                        <td class="font-bold text-orange-700">HashMap</td>
+                        <td><span class="badge badge-class">Class</span> (1.2)</td>
+                        <td>Hash Table</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>1 Null Key</td>
+                        <td>Not Maintained</td>
+                        <td>Keys: <span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>16 <span class="text-gray-500">(LF 0.75)</span> &rarr; <span class="font-bold">+100%</span></td>
+                        <td><span class="code-font">put()</span>, <span class="code-font">get()</span>, <span class="code-font">entrySet()</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-orange-700">LinkedHashMap</td>
+                        <td><span class="badge badge-class">Class</span> (1.4)</td>
+                        <td>Hash Table + Linked List</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>1 Null Key</td>
+                        <td>Maintained</td>
+                        <td>Keys: <span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>16 <span class="text-gray-500">(LF 0.75)</span> &rarr; <span class="font-bold">+100%</span></td>
+                        <td><span class="code-font">put()</span>, <span class="code-font">get()</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-orange-700">TreeMap</td>
+                        <td><span class="badge badge-class">Class</span> (1.2)</td>
+                        <td class="font-bold text-amber-700">Binary Search Tree</td>
+                        <td><span class="badge-no">No</span> <span class="text-xs text-gray-500">(Keys Comparable)</span></td>
+                        <td>No Null Key</td>
+                        <td>Sorted Order</td>
+                        <td>Keys: <span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td>N/A &rarr; <span class="font-bold">Balanced</span></td>
+                        <td><span class="code-font">firstKey()</span>, <span class="code-font">put()</span></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold text-orange-700">Hashtable</td>
+                        <td><span class="badge badge-legacy">Legacy</span> (1.0)</td>
+                        <td>Hash Table</td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>No Nulls</td>
+                        <td>Not Maintained</td>
+                        <td>Keys: <span class="badge-no">No</span></td>
+                        <td><span class="badge-no">No</span></td>
+                        <td><span class="badge-yes">Yes</span></td>
+                        <td>11 <span class="text-gray-500">(LF 0.75)</span> &rarr; <span class="font-bold">+100%</span></td>
+                        <td><span class="code-font">put()</span>, <span class="code-font">get()</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-4 text-xs text-slate-500">
+            <p><strong>Note:</strong> <span class="font-semibold text-slate-700">LF</span> = Load Factor. Growth formulas are approximated for simplicity.</p>
+            <p><strong>Heterogeneous:</strong> Classes requiring <span class="italic text-slate-700">Comparable</span> interfaces (TreeSet, TreeMap, PriorityQueue) will throw a ClassCastException if mutually non-comparable items are inserted.</p>
+        </div>
+    </div>
+
+</body>
+</html>

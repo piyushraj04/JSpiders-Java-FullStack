@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            background-color: beige;
+            
+        }
+       p::first-letter{
+            color: red;
+            font-size: 100px;
+        }
+        p{
+            text-indent: 100px;
+        }
+        h1::before{
+            content: "Piyush";
+            font-size: 8px;
+        }
+        h1::after{
+            content: "Raj";
+            /* content: url("../../Pics/Screenshot.png"); */
+            font-size: 8px;
+        }
+        input{
+            font-size: 10px;
+            color: brown;
+        }
+        input::placeholder{
+            color: blue;
+            text-shadow: 5px 5px 3px brown ;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Welcome dear🪴</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem debitis quasi esse aspernatur molestiae, suscipit inventore possimus quae dolore recusandae ipsum dolorum accusamus. Dicta cum dignissimos nesciunt veritatis, vitae nobis!</p>
+    <div class="para">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus odio ex, perferendis delectus id officia fugiat fuga asperiores quasi expedita quidem iste possimus omnis hic minima cumque officiis non accusantium.</div>
+    <input type="text" placeholder="Piyush Raj">
+    <!-- <ul>
+        <li>First Line</li>
+        <li>First Letter</li>
+        <li>Before</li>
+        <li>After</li>
+        <li>Placeholder</li>
+    </ul> -->
+</body>
+</html>

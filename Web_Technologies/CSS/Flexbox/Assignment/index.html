@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* background-image: url(https://onlinejain.com/img/banner.a88e3cd1.webp); */
+            background-color: rgb(252, 202, 22);
+            opacity: 0.9;
+        }
+
+        .child-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+        }
+
+        .child-nav>button {
+            /* padding: 3px; */
+            border-radius: 40px;
+            background-color: black;
+            color: #f1efef;
+        }
+
+        .child-body {
+            display: flex;
+            font-size: larger;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 50px;
+        }
+
+        .courses {
+            background-color: rgb(8, 12, 97);
+            color: white;
+            font-weight: 400;
+            display: inline;
+            font-size: larger;
+        }
+
+        .course_options {
+            width: 170px;
+        }
+
+        .body-child-form {
+            /* height: 300px; */
+            width: 250px;
+            background-color: #f1efef;
+            /* border: 2px blue;
+            border-style: double; */
+            padding: 20px;
+            align-items: center;
+            align-items: stretch;
+        }
+
+        .body-child-form input,
+        .body-child-form select {
+            width: 90%;
+            margin: 8px 0;
+            padding: 8px;
+            border: 1px solid gray;
+            border-radius: 4px;
+        }
+
+        .body-child-form input[type="submit"] {
+            background-color: navy;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .about-us-con {
+            display: flex;
+            justify-content: space-evenly;
+            background-color: rgb(8, 12, 97);
+            padding: 40px 0;
+        }
+
+        .about-us {
+            width: 200px;
+            height: auto;
+            border: none;
+            text-align: center;
+        }
+
+        .about-us h1 {
+            color: yellow;
+            font-size: 32px;
+            margin: 0;
+        }
+
+        .about-us h2 {
+            color: white;
+            font-size: 18px;
+            margin: 5px 0 0;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="parent">
+        <div class="child-nav">
+            <img width="250px" src="./Jain-Online-Logo.addc71da (1).webp" alt="">
+            <button>+917979919112</button>
+        </div>
+        <hr>
+        <div class="child-body">
+            <div class="body-child">
+                <h3>Uplift your Career with</h3>
+                <h2>Online Degree Programs</h2>
+                <div class="courses"><span>MBA |</span>MCA |<span>M.COM |</span>MA |<span></span><span>BBA
+                        |</span><span>B.COM</span><span></span></div>
+                <div><img src="./UGC-logo.0f784820.webp" alt=""></div>
+            </div>
+            <div class="body-child-image"><img src="./girl.png" alt=""></div>
+            <div class="body-child-form">
+                <form action="" align="center">
+                    <label for="">ENQUIRE NOW</label>
+                    <br>
+                    <input type="" name="Name" id="" placeholder="Name">
+                    <br>
+                    <input type="email" name="Name" id="" placeholder="Email">
+                    <br>
+                    <input type="number" name="Name" id="" placeholder="Name">
+                    <br>
+                    <input pattern="[0-9]{10}" type="tel" placeholder="Phone No.">
+                    <br>
+                    <select name="" id="" class="course_options" >
+                        <option value="">Select Courses</option>
+                        <option value="">BCA</option>
+                        <option value="">MCA</option>
+                        <option value="">B.TECH</option>
+                        <option value="">MBA</option>
+                        <option value="">M.TECH</option>
+                    </select>
+                    <br>
+                    <select name="" id="" class="course_options">
+                        <option value="">Select Elective</option>
+                    </select>
+                    <br>
+                    <select name="" id="" class="course_options">
+                        <option value="">Select State</option>
+                    </select>
+                    <br>
+                    <select name="" id="" class="course_options">
+                        <option value="">Select City</option>
+                    </select>
+                    <br>
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="child">
+            <div class="about-us-con">
+                <div class="about-us">
+                    <h1>40+</h1>
+                    <h2>In-Demand Electives</h2>
+                </div>
+                <div class="about-us">
+                    <h1>2,000 +</h1>
+                    <h2>Hiring Corporates</h2>
+                </div>
+                <div class="about-us">
+                    <h1>20,000 +</h1>
+                    <h2>Courses on LinkedIn Learning</h2>
+                </div>
+                <div class="about-us">
+                    <h1>0 Cost</h1>
+                    <h2>EMI Option</h2>
+                </div>
+            </div>
+        </div>
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+</body>
+
+</html>

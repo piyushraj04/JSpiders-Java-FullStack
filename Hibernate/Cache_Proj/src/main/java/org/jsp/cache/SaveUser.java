@@ -1,0 +1,26 @@
+package org.jsp.cache;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+public class SaveUser {
+	public static void main(String[] args) {
+		EntityManagerFactory fac = Persistence.createEntityManagerFactory("dev");
+		EntityManager man = fac.createEntityManager();
+		EntityTransaction tran = man.getTransaction();
+		tran.begin();
+		
+		User u = new User();
+		u.setName("Piyush");
+		u.setPhone(7979919112l);
+		
+		
+		man.persist(u);
+		
+		tran.commit();
+		
+	}
+
+}

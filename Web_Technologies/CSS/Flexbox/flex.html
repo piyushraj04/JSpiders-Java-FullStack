@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: brown;
+        }
+
+        .parent {
+            height: 500px;
+            width: 500px;
+            background-color: rgb(46, 46, 45);
+            display: flex;
+            /* flex-wrap: wrap; */
+            /* flex-wrap: wrap-reverse; */
+            justify-content: space-around;
+            flex-direction: row;
+            flex-direction: row-reverse;
+            flex-direction: column;
+            /* flex-direction: column-reverse; */
+            flex-direction: row;
+
+            /*
+              justify-content property, which aligns items horizontally and accepts the following values:
+
+              flex-start: Items align to the left side of the container.
+              flex-end: Items align to the right side of the container.
+              center: Items align at the center of the container.
+              space-between: Items display with equal spacing between them.
+              space-around: Items display with equal spacing around them.
+             */
+            justify-content: start;
+            justify-content: end;
+            justify-content: center;
+            justify-content: space-between;
+            justify-content: space-around;
+            justify-content: space-evenly;
+
+
+            /* Vertically */
+            /* align-items: start; */
+            /* align-items: end; */
+            /* align-items: center; */
+
+        }
+
+        .child1,
+        .child2,
+        .child3 {
+            height: 100px;
+            width: 100px;
+            color: red;
+            font-size: 50px;
+        }
+
+        .child1 {
+            background-color: chartreuse;
+        }
+
+        .child2 {
+            background-color: rgb(90, 192, 240);
+        }
+
+        .child3 {
+            background-color: rgb(243, 239, 26);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child1">1</div>
+        <div class="child2">2</div>
+        <div class="child3">3</div>
+    </div>
+</body>
+
+</html>

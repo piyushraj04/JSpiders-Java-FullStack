@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+<bean id = "myOrder" class = "org.jsp.springcore.Test01.Order">
+<property name = "orderId" value = "101"></property>
+<property name = "totalAmount" value = "10000.0"></property>
+<property name = "date" value = "26/01/2026"></property>
+<property name = "orderDetails">
+<map>
+<entry key = "101" value = "Shirt"></entry>
+<entry key = "102" value = "Shoe"></entry>
+</map>
+</property>
+</bean>
+
+
+	
+    
+
+</beans>

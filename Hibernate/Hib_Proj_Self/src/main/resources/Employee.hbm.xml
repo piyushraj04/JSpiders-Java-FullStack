@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+<class name = "org.hib.demo.Employee" table = "Emp_Info">
+<id name = "id" column = "eid">
+<generator class = "identity"></generator>
+</id>
+<property name= "name" column = "ename" not-null = "true"></property>
+<property name= "phone" column = "phone" not-null = "true" unique="true"></property>
+<property name= "email" column = "email" not-null = "true" unique = "true"></property>
+
+</class>
+</hibernate-mapping>
