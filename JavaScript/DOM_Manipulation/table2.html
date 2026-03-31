@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let table = document.createElement("table")
+        let tr1 = document.createElement("tr")
+        let th1 = document.createElement("th")
+        th1.textContent = "GID"
+        let th2 = document.createElement("th")
+        th2.textContent = "Gutkha
+        let th3 = document.createElement("th")
+        th3.textContent = "Price"
+
+        tr1.append(th1, th2, th3)
+
+
+
+        let tr2 = document.createElement("tr")
+
+        let td1 = document.createElement("td")
+        td1.textContent = "1"
+
+        let td2 = document.createElement("td")
+        td2.textContent("Rajanigandha")
+
+        let td3 = document.createElement("td")
+        td2.textContent("25")
+
+        tr2.append(td1)
+        tr2.append(td2)
+        tr2.append(td3)
+
+        table.append(tr1, tr2)
+
+        document.body.append(table)
+    </script>
+</body>
+
+</html>

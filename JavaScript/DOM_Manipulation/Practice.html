@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //When button is clicked:
+        // Change text
+        // Change color
+        // Add new element
+        let btn = document.createElement("button");
+
+        btn.textContent = "Click me❤️";
+
+        let text = document.createElement("p");
+
+        text.textContent = "Para...";
+
+        document.body.append(btn, text);
+
+        btn.classList.toggle("btn1", "text1");
+
+        let exist = document.getElementById("new");
+
+        btn.addEventListener("click", function () {
+            text.innerText = "Text Changed!"
+            text.style.color = "pink"
+
+            //prevent re-creation
+            let exist = document.getElementById("new");
+            if (!exist) {
+                let newEle = document.createElement("h2");
+
+                newEle.textContent = "New element created...";
+
+                newEle.id = "new"
+                document.body.append(newEle);
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
