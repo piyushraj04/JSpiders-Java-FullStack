@@ -8,14 +8,15 @@
 </head>
 
 <body>
-
     <script>
         let table = document.createElement("table")
+
         let tr1 = document.createElement("tr")
+
         let th1 = document.createElement("th")
         th1.textContent = "GID"
         let th2 = document.createElement("th")
-        th2.textContent = "Gutkha
+        th2.textContent = "name"
         let th3 = document.createElement("th")
         th3.textContent = "Price"
 
@@ -25,20 +26,46 @@
 
         let tr2 = document.createElement("tr")
 
-        let td1 = document.createElement("td")
-        td1.textContent = "1"
+        let td1 = document.createElement("td");
+        td1.textContent = "1";
 
         let td2 = document.createElement("td")
-        td2.textContent("Rajanigandha")
+        td2.textContent = "Rajanigandha";
 
-        let td3 = document.createElement("td")
-        td2.textContent("25")
+        let td3 = document.createElement("td");
+        td3.textContent = "25";
 
-        tr2.append(td1)
-        tr2.append(td2)
-        tr2.append(td3)
+        tr2.append(td1, td2, td3);
 
-        table.append(tr1, tr2)
+        let tr3 = document.createElement("tr");
+
+        let td21 = document.createElement("td");
+        td21.textContent = "2";
+        let td22 = document.createElement("td");
+        td22.textContent = "Vimal";
+        let td23 = document.createElement("td");
+        td23.textContent = 5;
+
+        tr3.append(td21, td22, td23);
+
+
+        table.append(tr1, tr2, tr3);
+        let cell = [th1, th2, th3, td1, td2, td3, td21, td22, td23];
+        cell.forEach((cell => {
+            cell.style.border = "1px dotted red"
+        }));
+
+
+        table.style.border = "2px solid black";
+        table.style.borderCollapse = "collapse";
+        let btn = document.createElement("button");
+        btn.textContent = "remove row2";
+        document.body.append(btn);
+
+        btn.addEventListener("click", function () {
+            table.removeChild(tr3);
+            document.body.append(table)
+        })
 
         document.body.append(table)
     </script>

@@ -15,17 +15,26 @@
         // Add new element
         let btn = document.createElement("button");
 
+        let btn2 = document.createElement("button");
+
         btn.textContent = "Click me❤️";
+        btn2.textContent = "Btn-2🪴"
+
+        btn.className = "btn1"
+        btn2.className = "btn11"
+
+
 
         let text = document.createElement("p");
 
         text.textContent = "Para...";
 
-        document.body.append(btn, text);
+        document.body.append(btn,btn2, text);
 
-        btn.classList.toggle("btn1", "text1");
+        // btn.classList.toggle("btn1");
 
-        let exist = document.getElementById("new");
+        // let exist = document.getElementById("new");
+        let exist = document.querySelector("#new");
 
         btn.addEventListener("click", function () {
             text.innerText = "Text Changed!"
@@ -42,6 +51,7 @@
                 document.body.append(newEle);
             }
         });
+
 
 
     </script>
